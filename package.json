@@ -1,0 +1,19 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "testRun": "npx cypress run",
+    "headTest": "npx cypress run --headed",
+    "chromeTest": "npx run --browser chrome",
+    "recordDashboardTest": "npx cypress run --record --key b34fd6f1-db10-4ba7-b364-e925c36c1b35 --spec cypress/e2e/TestFramework.cy.js --browser chrome",
+    "recordDashboardSample": "npx cypress run --record --key ",
+    "greenKartTest": "npx cypress run --spec \"cypress/integration/examples/GreenKart/*.js\"",
+    "smokeTest": "npx cypress run --spec \"cypress/e2e/TestFramework.cy.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

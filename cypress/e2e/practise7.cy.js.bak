@@ -1,0 +1,36 @@
+///<reference types = "cypress"/>
+///<reference types = "cypress-iframe"/>
+import 'cypress-iframe'
+
+
+describe("Calendar test", () => {
+  it("Verify date selection", () => {
+  const month = "6"; // Ensure this is a string
+  const date = "15";
+  const year = "2027";
+  
+  const formattedMonth = month.padStart(2, "0");
+  
+  cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/offers");
+  
+  // Open the calendar
+  cy.get(".react-date-picker__inputGroup").click();
+  
+  // Click to navigate to year selection
+  cy.get(".react-calendar__navigation__label").click().click();
+  
+  // Select the desired year
+  cy.get(".react-calendar__decade-view__years button").contains(year).click();
+  
+  // Select the month
+  cy.get(".react-calendar__year-view__months button").eq(parseInt(month) - 1).click();
+  
+  // Select the date
+  cy.get("abbr").contains(date).click();
+  
+  // Assert the selected date
+  cy.get(".react-date-picker__inputGroup").find("input")
+  .invoke("val")
+  .should("have.value", `${year}-${formattedMonth}-${date}`);
+  });
+  });

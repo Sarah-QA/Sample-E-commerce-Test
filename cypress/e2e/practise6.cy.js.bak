@@ -1,0 +1,59 @@
+///<reference types = "cypress"/>
+///<reference types = "cypress-iframe"/>
+import 'cypress-iframe'
+
+describe('Calender Tesr', () => {
+
+    it('Date selection', () => {
+      
+        
+
+      /* 
+       cy.visit('https://rahulshettyacademy.com/seleniumPractise/#/offers')
+
+       
+       cy.get('div.react-date-picker__inputGroup').click()
+       
+       cy.get('.react-calendar__navigation__label').click()
+       cy.get('.react-calendar__navigation__label').click()
+       cy.get('.react-calendar__tile').eq(2).click()
+       cy.get('.react-calendar__year-view__months__month').eq(7).click()
+       cy.get('.react-calendar__month-view__days__day').eq(30).click()
+       
+       */
+
+       const monthNumber = "6"
+       const day = "15"
+       const year = "2027"
+       const expectedList = [monthNumber,day,year]
+      
+
+
+
+       cy.visit('https://rahulshettyacademy.com/seleniumPractise/#/offers')
+
+       
+       cy.get('div.react-date-picker__inputGroup').click()
+       
+       cy.get('.react-calendar__navigation__label').click()
+       cy.get('.react-calendar__navigation__label').click()
+       cy.contains("button",year).click()
+       cy.get('.react-calendar__year-view__months__month').eq(Number(monthNumber)-1).click()
+       cy.contains('abbr', day).click()
+
+       cy.wait(7000)
+
+       //assertion
+       //cy.get(".react-date-picker__inputGroup").find("input").invoke("val").should("have.value", `${year}-${monthNumber}-${day}`);
+       *cy.get('.react-date-picker__inputGroup').each(($el,index) => 
+        {
+          cy.wrap($el).invoke('val').should("eq", expectedList[index])
+
+       })
+
+
+
+
+    })
+         
+  })

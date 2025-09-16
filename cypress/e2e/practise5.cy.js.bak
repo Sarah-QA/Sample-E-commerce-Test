@@ -1,0 +1,31 @@
+///<reference types = "cypress"/>
+///<reference types = "cypress-iframe"/>
+import 'cypress-iframe'
+
+describe('First Test suite', () => {
+
+    it('Frames Test', () => {
+      cy.visit('https://rahulshettyacademy.com/AutomationPractice/#/')
+
+      
+       cy.frameLoaded("#courses-iframe")
+       cy.iframe().find("a[href*='mentorship']").eq(0).click()
+
+       cy.wait(5000)
+       cy.iframe().find("h1[class*='pricing-title']").should('have.length',2)
+        
+
+       /*
+       cy.visit('https://rahulshettyacademy.com/seleniumPractise/#/offers')
+       cy.get('div.react-date-picker__inputGroup').invoke('show')
+       cy.get(".react-calendar__navigation__label").contains(2021).click()
+       cy.get(".div.react-calendar__decade-view__years").eq().click()
+       cy.contains('2021').click()
+
+
+
+
+*/
+    })
+         
+  })
