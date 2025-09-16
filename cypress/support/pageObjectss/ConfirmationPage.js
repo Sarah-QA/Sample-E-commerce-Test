@@ -6,7 +6,7 @@ submitForm(){
    // cy.submitFormDetails()
 
     cy.get('#country').type('Russia')
-    cy.wait(6000)
+    cy.wait(8000)
     cy.get(".suggestions ul li a").click()
     cy.get('.btn-success').click()
 
