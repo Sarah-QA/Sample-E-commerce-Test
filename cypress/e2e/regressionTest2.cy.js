@@ -21,6 +21,7 @@ describe('Regression Test', () => {
 
             })
         cy.contains('a','Checkout').click()
+        cy.contains('button', 'Checkout').click()
 
 
 
